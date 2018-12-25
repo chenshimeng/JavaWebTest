@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>这是第一个Bootstrap网页</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--手动导入本地的jQuery文件-->
+    <script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+    <!--<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
+    <script src="js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        #divId {
+            height: 20px;
+            border: 2px solid #CCCCCC;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<div class="progress">
+    <div id="divId" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+        0%
+    </div>
+</div>
+</body>
+<script>
+    var temp = 0;
+    var minSpeed = 0;
+    var maxSpeed = 10;
+    var timer = setInterval(function () {
+        temp += Math.floor(Math.random() * (maxSpeed - minSpeed) + minSpeed);
+        temp = Math.min(temp, 100);
+        document.getElementById("divId").style.width = temp + "%";
+        document.getElementById("divId").innerHTML = temp + "%";
+        if(temp >= 100) {
+            clearInterval(timer);
+        }
+    }, 100)
+</script>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+             var flag = true;
+             var lightEle = document.getElementById("light");
+
+            var inputEle = document.getElementById("input");
+             function changeLight(light) {
+                 light.src = (flag = !flag) ? "img/off.gif" : "img/on.gif"
+             }
+            lightEle.onclick = function(){
+                 changeLight(this);
+             }
+            lightEle.onmousedown = function(){
+                 changeLight(this);
+            }
+            lightEle.onmouseover = function () {
+                 changeLight(this);
+             }
+            // inputEle.onfocus = function () {
+            //     changeLight(lightEle);
+            //     spanEle.innerHTML = "获取焦点";
+            // }
+            // inputEle.onblur = function () {
+            //     changeLight(lightEle);
+            //     spanEle.innerHTML = "失去焦点";
+            // }
+
+        }
+        function focusFunc() {
+            var spanEle = document.getElementById("spanId");
+            spanEle.innerHTML = "获取焦点";
+        }
+        function blurFunc() {
+            var spanEle = document.getElementById("spanId");
+            spanEle.innerHTML = "失去焦点";
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="input" name="username" onfocus="focusFunc()" onblur="blurFunc()">
+<span id="spanId"></span>
+<img src="img/off.gif" alt="" id="light">
+</body>
+</html>
